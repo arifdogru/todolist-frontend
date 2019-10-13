@@ -2,7 +2,7 @@ import React, { Suspense }  from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
-import Task from "./components/task/tasks";
+import Task from "./components/todo/ToDoContainer";
 import store from "./state/store";
 import { PrivateRoute } from "./components/PrivateRoute";
 
