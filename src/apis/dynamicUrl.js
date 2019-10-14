@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "development") {
   url = "https://todolist-backend-arifdogru.herokuapp.com/:31571/v1";
 }*/
 console.log(process.env.NODE_ENV);
-url = "https://todolist-backend-arifdogru.herokuapp.com/:31571/v1";
+url = "https://todolist-backend-arifdogru.herokuapp.com/v1";
 export default {
   ToDoListServiceUrl: url
 };
