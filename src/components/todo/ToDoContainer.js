@@ -21,7 +21,6 @@ class App extends Component {
   componentDidMount() {
     toDoList().get('/tasks')
       .then(res => {
-        console.log("response:",res)
         this.setState({ todos: res.data.result })
       });
   }
@@ -32,25 +31,16 @@ class App extends Component {
         todos: this.state.todos.map(todo => {
           if(todo._id === id){
             todo.completed = !todo.completed;
-            console.log("tamamlanan todo:",todo);
           }
           return todo;
         })
       });
 
       const todos = [].concat(this.state.todos);
-      console.log(this.state.todos)
-      
-
-      console.log("**************",this.state.todos);
       
       for(let index=0; index<todos.length; ++index){
         if(todos[index].completed){
-          let completedTodo ={
-            _id:id,
-            completed:todos[index].completed
-          }
-          console.log("Update task:",completedTodo);
+
           toDoList().patch('/tasks', { _id: id , completed:todos[index].completed})
             .then(res => {
               console.log("Response:",res);
@@ -76,12 +66,10 @@ class App extends Component {
       name : name,
       completed : false
     }
-    console.log("Tum todolar:",this.state.todos);
     toDoList().post('/tasks', 
       newTodo
     )
       .then(res => {
-        console.log(res);
         this.setState({
         todos: [...this.state.todos, res.data.result]
       })
